@@ -1,0 +1,8 @@
+.idea
+.vagrant
+**/.DS_Store
+
+mzug.json
+node_modules
+build
+config.json
