@@ -2,6 +2,7 @@ import Task from 'data.task'
 import {memoize, compose, curry, curryN, chain} from 'ramda'
 import Maybe from 'data.maybe'
 
+// debug :: String -> a -> a
 const debug = curry((tag, toInspect) => {
     console.log(`${tag}: `, toInspect)
     return toInspect
@@ -55,6 +56,7 @@ const getParam = name => {
         : Maybe.Nothing()
 }
 
+// fork :: f -> g -> Task -> <Side Effects>
 const fork = curry((rej, succ, x) => x.fork(rej, succ))
 
 // app :: String -> <Side Effects>
