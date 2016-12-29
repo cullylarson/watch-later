@@ -1,5 +1,5 @@
 import Task from 'data.task'
-import {memoize, compose, map, curry, curryN, chain} from 'ramda'
+import {memoize, compose, curry, curryN, chain} from 'ramda'
 import Maybe from 'data.maybe'
 
 const debug = curry((tag, toInspect) => {
@@ -57,6 +57,9 @@ const getParam = name => {
 
 const fork = curry((rej, succ, x) => x.fork(rej, succ))
 
-const app = compose(map(fork(err => console.log('error: ', err), data => console.log('data: ', data))), map(getLists), map(listsUrl), () => getParam('key'))
+// app :: String -> <Side Effects>
+const app = compose(fork(err => console.log('error: ', err), data => console.log('data: ', data)), getLists, listsUrl)
 
-app()
+getParam('key')
+    .map(app)
+    .orElse(() => alert("You must provide a 'key' in the URL."))
