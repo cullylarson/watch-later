@@ -1,5 +1,5 @@
 import Task from 'data.task'
-import {propOr, memoize, compose, map, curry, curryN, chain} from 'ramda'
+import {memoize, compose, map, curry, curryN, chain} from 'ramda'
 import Maybe from 'data.maybe'
 
 const debug = curry((tag, toInspect) => {
