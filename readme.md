@@ -18,8 +18,14 @@ I find it annoying the Youtube's Watch Later list is sorted by added date, in as
     $ npm run build
     ```
 
-1. Open `index.html` with your YouTube API key:
+1. Start the server (will run on port 3000):
 
     ```
-    $ open index.html?key=<your api key>
+    $ npm run start
+    ```
+
+1. Open browser to server:
+
+    ```
+    $ open localhost:3000
     ```

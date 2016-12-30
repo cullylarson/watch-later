@@ -4,6 +4,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "dev": "webpack",
+    "start": "node build/server/app.js",
     "watch": "webpack --progress --colors --watch"
   },
   "dependencies": {
@@ -16,6 +17,8 @@
     "data.task": "^3.1.1",
     "eslint": "^3.12.2",
     "eslint-loader": "^1.6.1",
+    "express": "^4.14.0",
+    "json-loader": "^0.5.4",
     "path": "^0.12.7",
     "ramda": "^0.23.0",
     "standard": "^8.6.0",
