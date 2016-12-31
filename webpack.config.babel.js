@@ -37,10 +37,10 @@ export default [
         },
     },
     {
-        entry: ['whatwg-fetch', 'babel-polyfill', './src/main.js'],
+        entry: ['whatwg-fetch', 'babel-polyfill', './src/client/main.js'],
         target: 'web',
         output: {
-            path: './build',
+            path: path.join(__dirname, 'build/client'),
             filename: 'app.js',
         },
         module: {
