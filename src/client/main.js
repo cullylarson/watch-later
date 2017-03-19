@@ -28,11 +28,11 @@ const checkStatus = t => t
             )
     )
 
-// bFetch :: Object -> String -> Promise
-const bFetch = curry((params, url) => fetch(url, params))
+// pFetch :: Object -> String -> Promise
+const pFetch = curry((params, url) => fetch(url, params))
 
 // tFetch :: Object -> String -> Task
-const tFetch = curryN(2, compose(checkStatus, promiseToTask, bFetch))
+const tFetch = curryN(2, compose(checkStatus, promiseToTask, pFetch))
 
 // responseToObject :: Response -> Task Error Object
 const responseToObject = x => promiseToTask(x.json())
