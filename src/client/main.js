@@ -3,10 +3,12 @@ import {memoize, compose, curry, curryN, chain} from 'ramda'
 import Maybe from 'data.maybe'
 
 // debug :: String -> a -> a
+/*
 const debug = curry((tag, toInspect) => {
     console.log(`${tag}: `, toInspect)
     return toInspect
 })
+*/
 
 // promiseToTask :: Promise -> Task
 const promiseToTask = p => new Task((rej, res) => p.then(res).catch(rej))

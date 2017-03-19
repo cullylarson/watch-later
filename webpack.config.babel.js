@@ -10,30 +10,29 @@ export default [
             publicPath: "app",
         },
         module: {
-            loaders: [
+            rules: [
                 {
                     test: path.join(__dirname, 'src'),
-                    loader: 'babel',
+                    loader: 'babel-loader',
                 },
                 {
                     test: /\.jsx?$/,
                     exclude: /node_modules/,
-                    loader: 'babel',
+                    loader: 'babel-loader',
                 },
                 {
                     test: /\.json/,
-                    loaders: ["json"],
+                    loaders: ["json-loader"],
                 },
             ]
         },
         devtool: 'source-map',
         resolve: {
-            root: path.resolve(__dirname),
             alias: {
-                server: 'src/server',
-                common: 'src/common',
+                server: path.join(__dirname, 'src/server'),
+                common: path.join(__dirname, 'src/common'),
             },
-            extensions: ['', '.js', '.jsx']
+            extensions: ['.js', '.jsx']
         },
     },
     {
@@ -44,18 +43,17 @@ export default [
             filename: 'app.js',
         },
         module: {
-            loaders: [
+            rules: [
                 {
                     test: /\.js$/,
-                    loader: 'babel',
+                    loader: 'babel-loader',
                 },
                 {
                     test: /\.json/,
-                    loaders: ["json"],
+                    loaders: ["json-loader"],
                 },
-            ],
-            preLoaders: [
                 {
+                    enforce: 'pre',
                     test: /\.js$/,
                     exclude: [/node_modules/],
                     loader: 'eslint-loader',
@@ -64,12 +62,11 @@ export default [
         },
         devtool: (process.env.NODE_ENV === 'production') ? '' : 'source-map',
         resolve: {
-            root: path.resolve(__dirname),
             alias: {
                 client: 'src/client',
                 common: 'src/common',
             },
-            extensions: ['', '.js', '.jsx']
+            extensions: ['.js', '.jsx']
         },
     },
 ]

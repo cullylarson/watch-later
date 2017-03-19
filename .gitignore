@@ -1,6 +1,7 @@
 .idea
 .vagrant
 **/.DS_Store
+npm-debug.log
 
 mzug.json
 node_modules
